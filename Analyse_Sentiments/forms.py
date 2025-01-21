@@ -11,7 +11,7 @@ class SentimentForm(forms.Form):
                     'focus:bg-gradient-to-r from-pink-100 via-purple-50 to-purple-200 '
                     'transition-shadow duration-300 shadow-md hover:shadow-lg'
                 ),
-                'placeholder': 'Rédigez un texte ici...',
+                'placeholder': 'Write a text here...',
                 'rows': 5  # Définit la hauteur du champ texte
             }
         ),
