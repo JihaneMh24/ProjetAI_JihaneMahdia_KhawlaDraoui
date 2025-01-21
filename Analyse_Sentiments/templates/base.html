@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Site{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Header styles with creative gradient */
+        header {
+            background: linear-gradient(45deg, #ff9a9e, #c9b7ff, #fbc2eb, #a18cd1);
+            animation: gradientBG 10s ease infinite;
+            background-size: 400% 400%;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Footer styles with soft gradient and feminine touch */
+        footer {
+            background: linear-gradient(90deg, #fbc2eb, #a6c1ee);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Animation styles for positive and negative results */
+        .positive {
+            animation: happyBounce 1s ease;
+        }
+
+        .negative {
+            animation: angryShake 1s ease;
+        }
+
+        @keyframes happyBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes angryShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .emoji {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <header class="text-center py-10">
+        <h1 class="text-4xl font-bold">Analyse des Sentiments</h1>
+        <p class="text-lg mt-2">Entrez un texte pour analyser ses sentiments avec des retours créatifs !</p>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <div class="flex-grow mb-8">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-6">
+        <div>
+            <p class="text-sl">Realise Par : Jihane Mahdia & Khawla Draoui</p>
+           
+            <p class="text-sm mt-4">&copy; {{ year }} - Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

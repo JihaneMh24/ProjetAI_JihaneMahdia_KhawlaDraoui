@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Analyse de Sentiment{% endblock %}
+
+{% block content %}
+
+<!-- En-tête stylisée -->
+<!-- Contenu principal -->
+<main class="container mx-auto flex my-10 px-6 space-x-8">
+    <!-- Form Section -->
+    <div class="w-1/2 bg-white shadow-lg rounded-lg p-6">
+        <form method="post" class="space-y-4">
+            {% csrf_token %}  <!--securite-->
+            {{ form.as_p }}  <!--appel formulaire-->
+            <button type="submit" class="w-full bg-gradient-to-r from-pink-300 to-purple-400 text-white py-2 px-4 rounded-lg hover:shadow-xl">
+                Soumettre
+            </button>
+        </form>
+    </div>
+
+    <!-- Result Section -->
+    <div class="w-1/2">
+        {% if sentiment %}
+            {% if sentiment == "Positif" %}
+            <div class="positive bg-green-100 border-l-4 border-green-500 text-green-800 p-6 rounded-lg flex items-center space-x-4">
+                <span class="emoji">😊</span>
+                <div>
+                    <h2 class="text-xl font-semibold">Résultat :</h2>
+                    <p class="mt-2 text-lg">{{ sentiment }} :</p>
+                </div>
+            </div>
+            {% elif sentiment == "Négatif" %}
+            <div class="negative bg-red-100 border-l-4 border-red-500 text-red-800 p-6 rounded-lg flex items-center space-x-4">
+                <span class="emoji">😡</span>
+                <div>
+                    <h2 class="text-xl font-semibold">Résultat :</h2>
+                    <p class="mt-2 text-lg">{{ sentiment }} :</p>
+                </div>
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</main>
+
+{% endblock %}
